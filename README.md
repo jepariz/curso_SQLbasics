@@ -70,8 +70,23 @@ OBS: todas as linhas de uma tabela recebem uma id que, geralmente, é gerada pel
 
 *********
 
+### Selecionar uma LINHA específica da tabela com OPERADORES CONDICIONAIS: <h3>
 
+``` SELECT * FROM nome_da_tabela WHERE condição < número_da_condição; ```
 
+Podemos usar *operadores condicionais* para realizar seleções mais específicas. Alguns dos operadores possíveis são:
+
+```
+< (menor que),
+> (maior que),
+<= (menor ou igual a),
+>= (maior ou igual a).
+```
+
+> Por exemplo, para selecionar as informações do user cuja idade é maior que 18 anos da tabela "user", usamos a query:
+> SELECT * FROM user WHERE age > 18;
+
+********
 
 
 
