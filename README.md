@@ -88,14 +88,27 @@ Podemos usar *operadores condicionais* para realizar seleções mais específica
 
 ********
 
+### Selecionar algo com o operador lógico de DIFERENÇA
 
+``` SELECT * FROM nome_da_tabela WHERE condição != número_da_condição; ```
 
+Para fazer seleções de linhas que são DIFERENTES de determinada condição, usamos o operador de diferença !=.
 
+> Por exemplo, para selecionar as informações do user cuja idade é diferente de 18 anos da tabela "user", usamos a query:
+> SELECT * FROM user WHERE age != 18;
 
+*********
 
+### Selecionar COLUNAS ESPECÍFICAS usando OPERADORES CONDICIONAIS
 
+``` SELECT nome_da_coluna, nome_da_coluna FROM nome_da_tabela WHERE condição <= número_da_condição; ```
 
+Nesse caso, estamos apenas combinando duas operações anteriores: selecionar informações de colunas específicas, mas colocando condições para isso. 
 
+> Por exemplo, para selecionar as  colunas id e age dos usuários com menos de 21 anos da tabela "user", usamos a query:
+> SELECT id, age FROM user WHERE age < 21;
+
+*********
 
 
 
