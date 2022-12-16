@@ -143,3 +143,96 @@ Para agrupar várias condições, devemos colocá-las entre parênteses.
 **********
 ## 2.2 - Operações com TEXTO
 
+### Selecionar usando strings no WHERE
+
+``` SELECT nome_da_coluna FROM nome_da_tabela WHERE condição = 'valor_da_condição'; ```
+
+OBS: o valor da condição é case sensitive, ou seja, há diferença entre minúsculas e maiúsculas.
+
+> Por exemplo, para selecionar as informações do user cujo nome é 'Smith', usamos a query:
+> SELECT * FROM user WHERE name = 'Smith';
+> Se os nomes forem cadastrados no banco com letra maiúscula, usamos a query:
+> SELECT * FROM user WHERE name = 'SMITH';
+
+**********
+### Selecionar por palavras que iniciam COM DETERMINADA LETRA usando o operador LIKE
+
+``` SELECT * FROM nome_da_tabela WHERE condição LIKE 'letra%'; ```
+
+Nesse caso, usamos o operador LIKE depois da condição e colocamos entre aspas simples a letra seguida de % (porcentagem).
+
+> Por exemplo, para selecionar todos os usuários com nomes iniciados com a letra 'A', usamos a query:
+> SELECT * FROM user WHERE name LIKE "A%';
+
+***********
+
+### Selecionar por palavras que possuem DETERMINADA LETRA 
+
+``` SELECT * FROM nome_da_tabela WHERE condição LIKE '%letra%'; ```
+
+Nesse caso, usamos o operador LIKE depois da condição e colocamos entre aspas simples % (porcentagem), então a letra e mais uma % (porcentagem).
+
+> Por exemplo, para selecionar todos os usuários com nomes que possuem a letra 'A', usamos a query:
+> SELECT * FROM user WHERE name LIKE "%A%';
+
+Para buscar por nomes que terminam com determinada letra usamos '%letra'
+
+***********
+
+### Selecionar sem saber qual letra buscar
+
+``` SELECT * FROM nome_da_tabela WHERE condição LIKE '_restante_da_palavra'; ```
+
+Nesse caso, usamos o _ (underscore) para substituir uma letra que não temos certeza. Isso é muito útil quando não sabemos com que letra determinada palavra é escrita.
+
+> Por exemplo, se não sabemos se o nome do usuário começa com K ou com C, usamos a query:
+> SELECT * FROM user WHERE name LIKE "_atherine';
+
+Assim, o banco vai retornar todos os usuários que tenham nomes Katherine ou Catherine. 
+
+**********
+
+## 2.3 Operações com valores NULL
+
+### Selecionar APENAS valores que NÃO SÃO NULL
+
+``` SELECT * FROM nome_da_tabela WHERE condição IS NOT NULL; ```
+
+As tabelas podem ter linhas com campos vazios, então, para ignorar essas linhas em uma pesquisa, nós usamos o operador IS NOT NULL.
+
+> Por exemplo, para buscarmos todos os usuários que possuem nome do meio, usamos a query:
+> SELECT * FROM user WHERE middle_name IS NOT NULL;
+
+**********
+
+### Selecionar APENAS valores que SÃO NULL
+
+``` SELECT * FROM nome_da_tabela WHERE condição IS NULL; ```
+
+Nesse caso, estamos buscando por valores que não foram preenchidos ainda. 
+
+> Por exemplo, para buscarmos todos os usuários que NÃO possuem nome do meio, usamos a query:
+> SELECT * FROM user WHERE middle_name IS NULL;
+
+OBS: em comparações os valores NULL sempre são excluídos. Por exemplo, se eu busco usuários com age > 21 e um dos usuário tem o campo age com valor NULL, ele não será retornado naquela busca. 
+
+OBS²: em comparações como age >= 0, o usuário com age NULL também não será retornado.
+
+***********
+
+## 2.4 Operações matemáticas em SQL
+
+Assim como funciona com operadores condicionais, nós também podemos realizar **operações matemáticas** nas buscas. Alguns dos operadores possíveis são:
+
+```
++ (soma),
+- (subtração),
+* (multiplicação),
+/ (divisão).
+```
+
+> Por exemplo, para buscarmos por usuários que ganham anualmente um salário acima de 50 mil, usamos a query:
+> SELECT * FROM user WHERE (monthly_salary * 12) > 50000;
+
+OBS: perceba que a operação matemática está entre parênteses.
+
