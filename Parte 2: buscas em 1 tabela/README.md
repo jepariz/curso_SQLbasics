@@ -1,4 +1,4 @@
-## Parte 2: selcionando informações de uma tabela <h2>
+## Parte 2: selecionando informações de uma tabela <h2>
 
 ### Selecionar TODAS as infos de uma tabela: <h3>
 
